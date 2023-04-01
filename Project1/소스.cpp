@@ -1,39 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-void insert(int** arr, int* size, int index, int value) {
-	*arr = (int*)realloc(*arr, (*size + 1) * sizeof(int));  // 메모리 크기 확잧
-	for (int i = *size; i > index; i--) {  // 인덱스 이후 요소들을 한 칸씩 뒤로 이동
-		(*arr)[i] = (*arr)[i - 1];
-	}
-	(*arr)[index] = value;  // 인덱스 위치에 새로운 값 추가
-	*size += 1;  // 배열 크기 증가
-}
-
-int main() {
-	int* arr = (int*)malloc(5 * sizeof(int));  // 5개의 int형 배열 할당
-	int size = 5;  // 배열 크기 초기화
-
-	// 배열 초기화
-	for (int i = 0; i < size; i++) {
-		arr[i] = i + 1;
-	}
-
-	
-	insert(&arr, &size, 2, 7);  //insert함수 추가 및 인덱스 2에 값 10 삽입
-	printf("chage array: ");
-	for (int i = 0; i < size; i++) {
-		printf("%d ", arr[i]);
-	}
-	printf("\n");
-
-	free(arr);
-	return 0;
-}
-
-
-
-
-
 
 
 	/*	int data[10];
