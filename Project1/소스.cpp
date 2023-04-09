@@ -1,57 +1,45 @@
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+int main(void) {
 
+	FILE* fp;
+	int num[20];
+	int data[20];
+	int max = 0;
+	int index = 0;
+	int temp = 0;
 
-	/*	int data[10];
-	int num;
-	int a = 0;
-	int cnt = 1;
-	printf("정수 10개를 입력하세요");
-	for (int i = 0; i < 10; i++) {
-		scanf("%d", &data[i]);
+	fp = fopen("data.txt", "w");
+	for (int i = 0; i < 20; i++) {
+		scanf("%d", &num[i]);
+		fprintf(fp, "%d\n", num[i]);
 	}
-	for (int i = 0; i < 10; i++) {
+	fclose(fp);
+	printf("===================================\n");
+	int a = 0;
+	fp = fopen("data.txt", "r");
+	for (int i = 0; i < 20; i++) {
+		fscanf(fp, "%d", &data[i]);
+	}
+
+	for (int i = 0; i < 19; i++) {
+		for (int j = 0; j < 19; j++) {
+			if (data[j] > data[j + 1]) {
+				temp = data[j];
+				data[j] = data[j + 1];
+				data[j + 1] = temp;
+			}
+		}
+	}
+
+
+	fp = fopen("dataOut.txt", "w");
+	
+
+	printf("정렬된 값: ");
+	for (int i = 0; i < 20; i++) {
+		fprintf(fp, "%d", data[i]);
 		printf("%d ", data[i]);
 	}
-
-	while(cnt) {
-		printf("\n찾고싶은 정수1개를 입력하세요");
-		scanf("%d", &num);
-		for (int j = 0; j < 10; j++) {
-			if (num == data[j]) {
-				a++;
-				printf("%d은 %d번째 자리에 있습니다.\n", num, j+1);
-				break;
-			}
-			if (j == 9) {
-				if (a == 0) {
-					printf("No exist!!\n");
-				}
-				
-			}
-			
-		}
-		
-		printf("계속하고싶으면 1 안하고싶으면 0입력하세요");
-		scanf("%d", &cnt);
-	}
-*/
-
-/*char name[10];
-	char num[10];
-	int i = 1; 
-
-	while(1){
-
-	printf("학번을 입력하세용\n");
-	scanf("%s", num);
-
-	printf("이름을 입력하세용\n");
-	scanf("%s", name);
-	
-	printf("학번: %s \n이름: %s\n", num, name);
-	
-	printf("안할거면 0을 입력하세용");
-	scanf("%d", &i);
-	if (i == 0) {
-		break;
-	}
-	}*/
+	fclose(fp);
+}

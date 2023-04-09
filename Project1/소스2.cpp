@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #define _CRT_SECURE_NO_WARNINGS
 int main(void) {
 	//fputs("dfsd",fp);
@@ -50,4 +50,4 @@ int main(void) {
 	printf("max°ª: %d\nindex °ª: %d\n", max, index);
 	printf("md°ª %d", md);
 	fclose(fp);
-}
+}*/
