@@ -19,6 +19,11 @@ public class NullPointerExceptionExample {
         double var=intValue;
         System.out.println("a"+var);
         String.valueOf(charValue);
+        String [] st=new String[3];
+        st[0]="456";
+        st[1]="345";
+        st[2] =new String("345");
+
 
 
 
