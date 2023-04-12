@@ -21,6 +21,6 @@ class CarExample {
         Car car1 = new Car("d");
         Car car2 = new Car();
 
-        car1.
+
     }
 }
