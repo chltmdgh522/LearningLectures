@@ -1,4 +1,4 @@
-package java7;
+package test.java5;
 
 public class ArrayAverage {
     public static void main(String[] args) {

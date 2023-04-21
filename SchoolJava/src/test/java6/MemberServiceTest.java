@@ -1,4 +1,4 @@
-package java7;
+package test.java6;
 
 class MemberService {
     String id;
