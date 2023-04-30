@@ -130,6 +130,7 @@
     <ClCompile Include="소스.cpp" />
     <ClCompile Include="소스1.cpp" />
     <ClCompile Include="소스2.cpp" />
+    <ClCompile Include="소스4.cpp" />
     <ClCompile Include="학교과제.cpp" />
   </ItemGroup>
   <ItemGroup>
