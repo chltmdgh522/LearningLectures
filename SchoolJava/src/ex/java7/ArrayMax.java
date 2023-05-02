@@ -1,9 +1,4 @@
-package java7;
-
-import java3.InfinityAndNaNCheckExample;
-
-import java.util.ArrayList;
-import java.util.List;
+package ex.java7;
 
 public class ArrayMax {
     public static void main(String[] args) {

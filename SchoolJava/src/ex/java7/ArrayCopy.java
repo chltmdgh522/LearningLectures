@@ -1,4 +1,4 @@
-package java7;
+package ex.java7;
 
 public class ArrayCopy {
     public static void main(String[] args) {

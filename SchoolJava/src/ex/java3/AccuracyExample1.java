@@ -1,4 +1,4 @@
-package java3;
+package ex.java3;
 
 public class AccuracyExample1 {
     public static void main(String[] args) {

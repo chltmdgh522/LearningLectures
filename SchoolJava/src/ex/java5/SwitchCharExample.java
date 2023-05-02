@@ -1,4 +1,4 @@
-package java5;
+package ex.java5;
 
 public class SwitchCharExample {
     public static void main(String[] args) {

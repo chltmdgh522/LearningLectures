@@ -1,4 +1,4 @@
-package java6;
+package ex.java6;
 
 public class LengthExample {
     public static void main(String[] args) {

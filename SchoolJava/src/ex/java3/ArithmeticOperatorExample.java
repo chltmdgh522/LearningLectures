@@ -1,4 +1,4 @@
-package java3;
+package ex.java3;
 
 public class ArithmeticOperatorExample {
     public static void main(String[] args) {
