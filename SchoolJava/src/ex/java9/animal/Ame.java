@@ -8,11 +8,12 @@ public class Ame {
         Cat cat = new Cat();
         cat.sound();
 
-        animalSound(new Dog());
+        Ame ame =new Ame();
+        ame.animalSound(new Dog());
 
     }
-    
-    public static void animalSound(Animal animal){
+
+    public void animalSound(Animal animal){
         animal.sound();
     }
 }
