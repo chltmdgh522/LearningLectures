@@ -1,10 +1,9 @@
 package ex.java11.twoextendinterface;
 
-public class InterfaceImpl implements InterfaceC{
+public class InterfaceImpl implements InterfaceC {
     @Override
     public void methodA() {
         System.out.println("a실행");
-
     }
 
     @Override
