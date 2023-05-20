@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ArrowController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    GameObject player;
+
     void Start()
     {
-        
+        this.player = GameObject.Find("player");
     }
 
-    // Update is called once per frame
     void Update()
     {
         //프레임마다 등속으로 낙하시킨다.
@@ -20,5 +20,19 @@ public class ArrowController : MonoBehaviour
         if (transform.position.y < -5.0f) {
             Destroy(gameObject);
         }
+
+        //충돌판정
+        Vector2 p1 = transform.position; // 화살의 중심 좌표
+        Vector2 p2 = this.player.transform.position; // 플레이어의의 중심 좌표
+        Vector2 dir = p1 - p2;
+        float d = dir.magnitude;
+        float r1 = 0.5f; //화살의 반경
+        float r2 = 1.0f; //플레이어의 반경
+
+        if (d < r1 + r2) {
+            //충돌한 경우는 화살을 지운다.
+            Destroy(gameObject);
+        }
+
     }
 }
