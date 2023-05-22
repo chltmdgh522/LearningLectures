@@ -30,6 +30,10 @@ public class ArrowController : MonoBehaviour
         float r2 = 1.0f; //플레이어의 반경
 
         if (d < r1 + r2) {
+            //감독 스크립트에 플레이어와 화살이 충돌했다고 전달한다.
+            GameObject director = GameObject.Find("GameDirector");
+            director.GetComponent<GameDirector>().DecreaseHp();
+            
             //충돌한 경우는 화살을 지운다.
             Destroy(gameObject);
         }
