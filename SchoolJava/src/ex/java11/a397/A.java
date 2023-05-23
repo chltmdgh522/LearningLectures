@@ -17,7 +17,7 @@ public class A {
     }
     void useB(){
         B b=new B();
-        System.out.println(b.field1);
+        System.out.println(b.field1+"a");
         b.method1();
     }
 }
