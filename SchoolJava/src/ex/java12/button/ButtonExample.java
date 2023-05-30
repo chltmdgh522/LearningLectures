@@ -25,7 +25,6 @@ public class ButtonExample {
             }
         }
         btnCancel.setClickListener(new CancelListener());
-
         btnCancel.click();
     }
 }
