@@ -1,4 +1,4 @@
-package ex.java9;
+package ex.java9.gita;
 
 public class SupersoniAirplane extends Airplane{
     public static final int NORMAL =1;

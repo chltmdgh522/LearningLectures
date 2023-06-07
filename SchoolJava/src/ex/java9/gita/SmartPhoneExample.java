@@ -1,8 +1,8 @@
-package ex.java9;
+package ex.java9.gita;
 
 public class SmartPhoneExample {
     public static void main(String[] args) {
-        SmartPhone smartPhone=new SmartPhone("갤럭시","은색");
+        SmartPhone smartPhone=new SmartPhone("갤럭시");
         System.out.println("모델: " + smartPhone.model);
         System.out.println("색상: "+ smartPhone.color);
         System.out.println("와이파이 상태"+ smartPhone.wifi);

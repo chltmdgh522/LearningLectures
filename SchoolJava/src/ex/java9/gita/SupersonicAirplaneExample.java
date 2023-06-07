@@ -1,4 +1,4 @@
-package ex.java9;
+package ex.java9.gita;
 
 public class SupersonicAirplaneExample {
     public static void main(String[] args) {

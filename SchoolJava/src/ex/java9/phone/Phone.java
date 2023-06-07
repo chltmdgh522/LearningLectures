@@ -13,4 +13,6 @@ public class Phone {
     void turnOff(){
         System.out.println("폰 전원을 끝니다.");
     }
+
+
 }
