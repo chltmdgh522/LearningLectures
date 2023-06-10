@@ -1,6 +1,6 @@
 package test.abstract1;
 
-public abstract class Phone {
+public class Phone {
     String owner;
     Phone(String owner){
         this.owner=owner;
