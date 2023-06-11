@@ -7,7 +7,7 @@ public class FEX {
         try(FileWriter fw=new FileWriter("csh")){
          fw.write("gdgd");
         } catch (IOException e) {
-            System.out.println("d");
+            System.out.println("dd");
         }
     }
 }
