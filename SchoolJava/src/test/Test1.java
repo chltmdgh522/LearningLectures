@@ -9,7 +9,6 @@ public interface Test1 {
     default void show() {
         System.out.println("a");
     }
-
     static void show2(){
         System.out.println("a");
     }
