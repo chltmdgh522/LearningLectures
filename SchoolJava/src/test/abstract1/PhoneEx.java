@@ -5,7 +5,5 @@ public class PhoneEx {
         Phone sp=new SmartPhone("c");
        sp.turnOff();
        sp.turnOn();
-
-
     }
 }
