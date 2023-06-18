@@ -1,21 +1,16 @@
 package test;
 
-public interface Test1 {
-    int a = 1;
-    int b = 1;
+public class Test1 implements AutoCloseable {
 
-    public void show1();
-
-    default void show() {
-        System.out.println("a");
-        show2();
-    }
-    static void show2() {
-        System.out.println("a");
-    show3();
+    public Test1(String file){
+        System.out.println(file+"파일을 연다");
     }
 
-    private static void show3(){
+    public void write(String text){
+        System.out.println(text+"문자를 연다");
+    }
+
+    public void close() throws Exception{
 
     }
 }
