@@ -12,7 +12,7 @@ public class Test {
         public void run(){};
         public static void main(String[] args) {
             Test t= new Test();
-            Test1 test1 =new Test1(){
+            Test.Test1 t2 =t.new Test1(){
                 public void run(){
                     System.out.println(a+t.b);
                 }
