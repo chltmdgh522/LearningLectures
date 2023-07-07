@@ -1,4 +1,4 @@
-package test;
+package test.java7;
 
 public class Test1 implements AutoCloseable {
 
