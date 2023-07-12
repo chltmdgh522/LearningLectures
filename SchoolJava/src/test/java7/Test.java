@@ -1,20 +1,20 @@
 package test.java7;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Test {
-    String b=null;
-    class Test1{
-        String a=null;
-        public void run(){};
-        public static void main(String[] args) {
-            Test t= new Test();
-            Test.Test1 t2 =t.new Test1(){
-                public void run(){
-                    System.out.println(a+t.b);
-                }
-            };
-        }
+    Map<String, Integer> map=new HashMap<>();
+    public Test(){
+        map.put("2",1);
     }
 
-
+    public void show(){
+        map.get("2");
+    }
+    public static void main(String[] args) {
+        Test t = new Test();
+        Integer integer = t.map.get("2");
+    }
 
 }
