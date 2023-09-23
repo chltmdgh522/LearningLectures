@@ -8,3 +8,6 @@ import numpy as np
 digit = train_images[4]
 plt.imshow(digit, cmap=plt.cm.binary)
 plt.show()
+
+my_slice = train_images[10:100]
+print(my_slice.shape)
