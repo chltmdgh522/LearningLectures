@@ -39,12 +39,17 @@ f = open("alphabet.txt", "r")
 dir = f.read()
 f1 = open("password.txt", "w")
 for word in dir:
-    f1.write(sorted_alphabet_count.get(word.lower(), word))
+    # 대문자를 해결하기위해
+    if 'A' <= word <= 'Z':
+        u_word = sorted_alphabet_count.get(word.lower(), word)
+        f1.write(u_word.upper())
+    else:
+        f1.write(sorted_alphabet_count.get(word.lower(), word))
 f1.close()
 f.close()
 
 
-# 암호문으로 원래 문장으로 변경
+# 암호문을 원래 문장으로 변경
 replace_alphabet = {}
 for key, value in sorted_alphabet_count.items():
     replace_alphabet[value] = key
@@ -54,4 +59,9 @@ f1 = open("password.txt", "r")
 password_dir = f1.read()
 
 for word in password_dir:
-    f2.write(replace_alphabet.get(word.lower(), word))
+    # 대문자를 해결하기위해
+    if ('A' <= word <= 'Z'):
+        u_r_word = replace_alphabet.get(word.lower(), word)
+        f2.write(u_r_word.upper())
+    else:
+        f2.write(replace_alphabet.get(word.lower(), word))
