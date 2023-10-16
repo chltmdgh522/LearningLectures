@@ -65,3 +65,6 @@ for word in password_dir:
         f2.write(u_r_word.upper())
     else:
         f2.write(replace_alphabet.get(word.lower(), word))
+
+f1.close()
+f2.close()
