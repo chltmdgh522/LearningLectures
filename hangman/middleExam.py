@@ -31,4 +31,5 @@ for key, value in scores.items():
     elif max_value == value:
         if max_key < key:
             max_value = value
+
 print(max_key, max_value)
