@@ -32,3 +32,5 @@ print(ss)
 # for i in range(2):
 #     list += ["dd"]
 # print(list)
+
+print(11/5)
