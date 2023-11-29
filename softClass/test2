@@ -1,0 +1,98 @@
+from sklearn.linear_model import LogisticRegression
+import pandas as pd
+
+# 사용자가 선택한 여행 응답
+user_response = {
+    'country': 'France',
+    'companion': 'Family',
+    'age': '20대',
+    'preference': 0,
+    'destination': 'City'
+}
+
+# 사용자 응답을 특성으로 가지는 데이터 생성
+user_data = [
+    [user_response['country'], user_response['companion'], user_response['age'],
+        user_response['preference'], user_response['destination']]
+]
+
+# 데이터프레임 생성
+columns = ['country', 'companion', 'age', 'preference', 'destination']
+user_df = pd.DataFrame(user_data, columns=columns)
+
+# 원핫 인코딩
+user_df_encoded = pd.get_dummies(user_df, columns=[
+                                 'country', 'companion', 'age', 'preference', 'destination'])
+user_df_encoded = user_df_encoded.astype(int)
+
+# 전처리된 데이터를 특성과 레이블로 분리
+processed_data = [
+    {'country': 'France', 'destination': 'City', 'age': '20대',
+        'companion': 'Family', 'preference': 2},
+    {'country': 'France', 'destination': 'City', 'age': '20대',
+     'companion': 'Family', 'preference': 2},
+    {'country': 'France', 'destination': 'City', 'age': '20대',
+     'companion': 'Friends', 'preference': 3},
+    {'country': 'France', 'destination': 'City', 'age': '20대',
+     'companion': 'Friends', 'preference': 2},
+    {'country': 'France', 'destination': 'City', 'age': '20대',
+     'companion': 'Friends', 'preference': 0},
+    {'country': 'France', 'destination': 'City', 'age': '20대',
+     'companion': 'Friends', 'preference': 0},
+    {'country': 'France', 'destination': 'City', 'age': '20대',
+     'companion': 'Friends', 'preference': 5},
+    {'country': 'France', 'destination': 'City', 'age': '20대',
+     'companion': 'Friends', 'preference': 2},
+    {'country': 'France', 'destination': 'City', 'age': '20대',
+     'companion': 'Friends', 'preference': 1},
+    {'country': 'Kor', 'destination': 'Beach', 'age': '30대',
+     'companion': 'Family', 'preference': 4},
+]
+
+X = pd.DataFrame(processed_data, columns=[
+                 'country', 'destination', 'age', 'companion', 'preference'])
+y = (X['preference'] >= 3).astype(int)  # preference가 3 이상인 경우 1, 아니면 0으로 변환
+
+# 원핫 인코딩 적용
+X_encoded = pd.get_dummies(
+    X, columns=['country', 'destination', 'age', 'companion'])
+X_encoded = X_encoded.astype(int)
+
+# 모델 초기화 및 학습
+model = LogisticRegression()
+model.fit(X_encoded, y)
+
+
+matching_columns = [
+    col for col in X_encoded.columns if col in user_df_encoded.columns]
+
+
+# 사용자 데이터에서 필요한 열만 선택
+user_df_encoded_subset = user_df_encoded[matching_columns]
+
+
+# 모델에 학습된 데이터와 사용자 데이터 일치 여부 확인
+is_matching = X_encoded.eq(user_df_encoded_subset.iloc[0]).sum(axis=1) >= 4
+print(X_encoded.eq(user_df_encoded_subset.iloc[0]))
+print(is_matching)
+
+# 일치하는 경우에만 preference가 3 이상인 결과 출력
+matched_indices = is_matching[is_matching].index
+print(is_matching[is_matching].index)
+
+matched_data_from_model = X_encoded.loc[matched_indices]
+print(matched_data_from_model)
+
+
+original_values = []
+
+for index, row in matched_data_from_model.iterrows():
+    original_value = {}
+    for column in matched_data_from_model.columns:
+        if row[column] == 1:
+            original_value[column.split('_')[1]] = 1
+    original_values.append(original_value)
+
+# original_values를 데이터프레임으로 변환하여 출력
+original_values_df = pd.DataFrame(original_values)
+print(original_values_df)
