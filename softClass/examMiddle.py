@@ -34,3 +34,8 @@ print(ss)
 # print(list)
 
 print(11/5)
+
+
+f = open("a.txt", "r")
+b = f.readlines()
+print(b)
