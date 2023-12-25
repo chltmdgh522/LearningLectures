@@ -5,6 +5,7 @@
 # myBook = 2
 # print(myBook)  # 튜플은 변경 못함
 
+
 # myBook[0] = 1
 
 # num = [5, 4, 3, 2, 1]
