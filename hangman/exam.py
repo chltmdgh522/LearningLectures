@@ -8,6 +8,7 @@
 
 # myBook[0] = 1
 
+
 # num = [5, 4, 3, 2, 1]
 # print(num.remove(2)) #pop은 뜸
 # print(num)
