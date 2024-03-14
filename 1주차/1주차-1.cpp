@@ -4,7 +4,9 @@
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
-    LPSTR lpCmdLine, int nCmdShow)
+    LPSTR lpCmdLine, int nCmdShow) //초기화, 메시지 루프 
+// hinstance는 윈도우 프밍에서 사용하는 데이터 형식 
+//lpstr은 문자열을 가리키는 포인터 
 {
     WNDCLASS wndclass;
     HWND hwnd;
@@ -26,7 +28,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
     // 윈도우를 생성하고 화면에 보이게 한다.
     hwnd = CreateWindow("HelloClass", "HelloSDK", WS_OVERLAPPEDWINDOW,
-        CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
+        CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, // 4가지는 폭 지금은 디폴트 값임 
         NULL, NULL, hInstance, NULL);
     ShowWindow(hwnd, nCmdShow);
 
@@ -40,12 +42,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 }
 
 
-LRESULT CALLBACK WndProc(HWND hwnd, UINT message,
+LRESULT CALLBACK WndProc(HWND hwnd, UINT message, //메시지 종류와 상세 내용 
     WPARAM wParam, LPARAM lParam)
 {
     HDC hdc;
-    PAINTSTRUCT ps;
-    const char* str = "Hello, SDK";
+    PAINTSTRUCT ps; //윈도우 그래픽에서 사용하는 구조체 
+    const char* str = "2019E7184";
+    const char* str1 = "choi seung ho";
+
 
     // 발생한 메시지의 종류에 따라 적절히 처리한다.
     switch (message) {
@@ -54,9 +58,11 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message,
     case WM_LBUTTONDOWN:
         MessageBox(hwnd, "마우스를 클릭했습니다.", "마우스 메시지", MB_OK);
         return 0;
-    case WM_PAINT:
+
+    case WM_PAINT: //출력용 메시지 자료구조바뀌면 실행 ㄱ
         hdc = BeginPaint(hwnd, &ps);
-        TextOut(hdc, 100, 100, str, lstrlen(str));
+        TextOut(hdc, 100, 100, str, lstrlen(str)); //어디에 그리냐면 hdc
+        TextOut(hdc, 100, 150, str1, lstrlen(str1)); //어디에 그리냐면 hdc
         EndPaint(hwnd, &ps);
         return 0;
     case WM_DESTROY:
