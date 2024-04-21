@@ -5,8 +5,8 @@ LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     LPSTR lpCmdLine, int nCmdShow) //초기화, 메시지 루프 
-// hinstance는 윈도우 프밍에서 사용하는 데이터 형식 
-//lpstr은 문자열을 가리키는 포인터 
+    // hinstance는 윈도우 프밍에서 사용하는 데이터 형식 
+    //lpstr은 문자열을 가리키는 포인터 
 {
     WNDCLASS wndclass;
     HWND hwnd;
@@ -28,7 +28,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
     // 윈도우를 생성하고 화면에 보이게 한다.
     hwnd = CreateWindow("HelloClass", "HelloSDK", WS_OVERLAPPEDWINDOW,
-        CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, // 4가지는 폭 지금은 디폴트 값임 
+        CW_USEDEFAULT, CW_USEDEFAULT, 400, 200, // 가로 400, 세로 200, // 4가지는 폭 지금은 디폴트 값임 
         NULL, NULL, hInstance, NULL);
     ShowWindow(hwnd, nCmdShow);
 
