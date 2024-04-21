@@ -1,5 +1,9 @@
 #include <windows.h>
 
+//여기에 400 200 윈도우
+//모니터 좌상단 기준 우측으로 400떨어진 곳에 윈도우의 좌상단을 위치
+//윈도우 바닥 중앙에 자신의 이름을 출력 
+
 // WinMain 함수에서 참조하므로 함수 원형을 선언한다.
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
@@ -28,7 +32,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
     // 윈도우를 생성하고 화면에 보이게 한다.
     hwnd = CreateWindow("HelloClass", "HelloSDK", WS_OVERLAPPEDWINDOW,
-        CW_USEDEFAULT, CW_USEDEFAULT, 400, 200, // 가로 400, 세로 200, // 4가지는 폭 지금은 디폴트 값임 
+        400, 0, 400, 200, // 가로 400, 세로 200, // 4가지는 폭 지금은 디폴트 값임   CW_USEDEFAULT
         NULL, NULL, hInstance, NULL);
     ShowWindow(hwnd, nCmdShow);
 
@@ -47,7 +51,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, //메시지 종류와 상세 �
 {
     HDC hdc;
     PAINTSTRUCT ps; //윈도우 그래픽에서 사용하는 구조체 
-    const char* str = "2019E7184";
+    const char* str = "choi seung ho";
     const char* str1 = "choi seung ho";
 
 
@@ -61,8 +65,8 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, //메시지 종류와 상세 �
 
     case WM_PAINT: //출력용 메시지 자료구조바뀌면 실행 ㄱ
         hdc = BeginPaint(hwnd, &ps);
-        TextOut(hdc, 100, 100, str, lstrlen(str)); //어디에 그리냐면 hdc
-        TextOut(hdc, 100, 150, str1, lstrlen(str1)); //어디에 그리냐면 hdc
+        TextOut(hdc, 150, 140, str, lstrlen(str)); //어디에 그리냐면 hdc
+        //TextOut(hdc, 100, 150, str1, lstrlen(str1)); //어디에 그리냐면 hdc
         EndPaint(hwnd, &ps);
         return 0;
     case WM_DESTROY:
