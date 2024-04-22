@@ -78,23 +78,45 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
     case WM_COMMAND:
         switch (LOWORD(wParam))
         {
-        case ID_32773:
+        case ID_32773: //파랑 
             TextColor = 0x000000FF;
             InvalidateRect(hwnd, NULL, TRUE);
             break;
 
-        case ID_32772:
+        case ID_32772: //빨강
             TextColor = 0x00FF0000;
             InvalidateRect(hwnd, NULL, TRUE);
             break;
 
-        case ID_32774:
-            SetTimer(hwnd, 1, 500, TimerProc);
+        case ID_32776: //초록
+            TextColor = 0x0000FF00;
+            InvalidateRect(hwnd, NULL, TRUE);
             break;
 
-        case ID_32775:
+        case ID_32774: //시작
+            SetTimer(hwnd, 1, 1500, TimerProc);
+            break;
+
+        case ID_32775: // 중지
             KillTimer(hwnd, 1);
             break;
+
+        case ID_32780: //화면종료
+            PostMessage(hwnd, WM_CLOSE, 0, 0); // 화면 종료 
+            break;
+
+        case ID_32777:
+            SetTimer(hwnd, 1, 200, TimerProc); // 0.2초 (200밀리초)
+            break;
+
+        case ID_32778:
+            SetTimer(hwnd, 1, 500, TimerProc); // 0.5초 (500밀리초)
+            break;
+
+        case ID_32779:
+            SetTimer(hwnd, 1, 1000, TimerProc); // 1초 (1000밀리초)
+            break;
+
         }
         break;
 
@@ -114,11 +136,11 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
         pt.y = HIWORD(lParam);
         if (!isClicked) {
             if (x <= pt.x && pt.x <= x + 20 && y <= pt.y && pt.y <= y + 20) {
-                score+=10;
+                score += 1;
             }
-            else {
-                score--;
-            }
+            // else {
+           //     score--;
+           //}
             isClicked = TRUE;
             InvalidateRect(hwnd, NULL, FALSE);
         }
@@ -137,8 +159,8 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
         TextOut(hdc, oldX, oldY, "   ", 3);
         TextOut(hdc, x, y, "H", 1);
 
-        TCHAR scoreStr[20];
-        wsprintf(scoreStr, TEXT("Score: %d"), score);
+        TCHAR scoreStr[30];
+        wsprintf(scoreStr, TEXT("두더지잡은수: %d"), score);
         TextOut(hdc, 10, 10, scoreStr, lstrlen(scoreStr));
 
         oldX = x;
