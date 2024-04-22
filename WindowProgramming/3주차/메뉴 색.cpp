@@ -36,7 +36,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, //WINAPI : ��
         NULL,                                                     //�θ� ������ �ڵ�                                                        //�޴� �ڵ�
         LoadMenu(hInstance, MAKEINTRESOURCE(IDR_MENU1)),
         hInstance,
-       //���� ���α׷� ID
+        //���� ���α׷� ID
         NULL                                                      //������ ������ ����
     );
     ShowWindow(hwnd, nCmdShow);                                     //�������� ȭ�� ���
@@ -98,7 +98,16 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
             TextColor = 0x00FF0000;
             InvalidateRect(hwnd, NULL, TRUE);
             break;
+
+        case ID_32776:
+            TextColor = 0x0000FF00;
+            InvalidateRect(hwnd, NULL, TRUE);
+            break;
+        
+        
         }
+       
+
         break;
 
     case WM_CREATE:
@@ -143,5 +152,6 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
         PostQuitMessage(0);
         break;
     }
+
     return DefWindowProc(hwnd, iMsg, wParam, lParam);             //CASE���� ���ǵ
 }
