@@ -97,18 +97,41 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
             InvalidateRect(hwnd, NULL, TRUE);
             break;
 
-        case ID_32774:
-            SetTimer(hwnd, 1, 500, TimerProc);
+        case ID_32776: //초록
+            TextColor = 0x0000FF00;
+            InvalidateRect(hwnd, NULL, TRUE);
             break;
 
-        case ID_32775:
+        case ID_32774: //시작
+            SetTimer(hwnd, 1, 1500, TimerProc);
+            break;
+
+        case ID_32775: // 중지
             KillTimer(hwnd, 1);
             break;
+
+        case ID_32780: //화면종료
+            PostMessage(hwnd, WM_CLOSE, 0, 0); // 화면 종료 
+            break;
+
+        case ID_32777:
+            SetTimer(hwnd, 1, 200, TimerProc); // 0.2초 (200밀리초)
+            break;
+
+        case ID_32778:
+            SetTimer(hwnd, 1, 500, TimerProc); // 0.5초 (500밀리초)
+            break;
+
+        case ID_32779:
+            SetTimer(hwnd, 1, 1000, TimerProc); // 1초 (1000밀리초)
+            break;
+
+        
         }
         break;
 
     case WM_CREATE:
-        SetTimer(hwnd, 1, 1500, TimerProc);
+        SetTimer(hwnd, 1, 1500, TimerProc); //초기 설정  노말이랑 같게하는게 좋을듯?
         x = 0;
         y = 0;
         break;
